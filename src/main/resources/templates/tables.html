@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css"/>
+
+    <title>DataTables</title>
+</head>
+<body>
+<div class="container">
+    <table id="employees" class="table table-striped table-bordered table-hover dataTables-example statusToggle">
+        <thead>
+        <tr>
+            <th>seq</th>
+            <th>name</th>
+            <th>description</th>
+            <th>price</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
+<script type="text/javascript" src="js/jquery.spring-friendly.js"></script>
+<script>
+    $('table#employees').DataTable({
+        ajax: 'http://localhost:8080/getData',
+        serverSide: true,
+        columns: [
+            {data: 'seq'},
+            {data: 'name'},
+            {data: 'description'},
+            {data: 'price'}
+        ]
+    });
+</script>
+
+</body>
+</html>
